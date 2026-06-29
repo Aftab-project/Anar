@@ -1,0 +1,22 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "Set-Content": true,
+        "Test-Path": true,
+        "/^\\$files = Get-ChildItem -Recurse -File -Include \\*\\.html; \\$pattern = '#\\[0-9A-Fa-f\\]\\{3,8\\}\\\\b'; \\$colors = @\\(\\); foreach \\(\\$f in \\$files\\) \\{ \\$matches = \\[regex\\]::Matches\\(\\(Get-Content \\$f\\.FullName -Raw\\), \\$pattern\\) \\| ForEach-Object \\{ \\$_\\.Value\\.ToUpper\\(\\) \\}; \\$colors \\+= \\$matches \\}; \\$colors \\| Group-Object \\| Sort-Object Count -Descending \\| Select-Object -First 120 \\| ForEach-Object \\{ \"\\{0\\} \\{1\\}\" -f \\$_\\.Name, \\$_\\.Count \\}$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^\\$allowed = @\\('#9E2A36','#D79582','#F2E2DE','#FAF6F3'\\); \\$files = Get-ChildItem -Recurse -File -Include \\*\\.css; \\$pattern = '#\\[0-9A-Fa-f\\]\\{3,8\\}\\\\b'; \\$all = foreach\\(\\$f in \\$files\\)\\{ \\[regex\\]::Matches\\(\\(Get-Content \\$f\\.FullName -Raw\\),\\$pattern\\) \\| ForEach-Object \\{ \\$_\\.Value\\.ToUpper\\(\\) \\} \\}; \\$all \\| Group-Object \\| Where-Object \\{ \\$_\\.Name -notin \\$allowed \\} \\| Sort-Object Count -Descending \\| Select-Object -First 40 \\| ForEach-Object \\{ \"\\{0\\} \\{1\\}\" -f \\$_\\.Name,\\$_\\.Count \\}$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^\\$allowed = @\\('#9E2A36','#D79582','#F2E2DE','#FAF6F3'\\); \\$files = Get-ChildItem -Recurse -File -Include \\*\\.html; \\$pattern = '#\\[0-9A-Fa-f\\]\\{3,8\\}\\\\b'; \\$all = foreach\\(\\$f in \\$files\\)\\{ \\[regex\\]::Matches\\(\\(Get-Content \\$f\\.FullName -Raw\\),\\$pattern\\) \\| ForEach-Object \\{ \\$_\\.Value\\.ToUpper\\(\\) \\} \\}; \\$all \\| Group-Object \\| Where-Object \\{ \\$_\\.Name -notin \\$allowed \\} \\| Sort-Object Count -Descending \\| Select-Object -First 40 \\| ForEach-Object \\{ \"\\{0\\} \\{1\\}\" -f \\$_\\.Name,\\$_\\.Count \\}$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^\\$allowed = @\\('#9E2A36','#D79582','#F2E2DE','#FAF6F3'\\); \\$files = Get-ChildItem -Recurse -File -Include \\*\\.css; \\$pattern = '#\\[0-9A-Fa-f\\]\\{3,8\\}\\\\b'; \\$all = foreach\\(\\$f in \\$files\\)\\{ \\[regex\\]::Matches\\(\\(Get-Content \\$f\\.FullName -Raw\\),\\$pattern\\) \\| ForEach-Object \\{ \\$_\\.Value\\.ToUpper\\(\\) \\} \\}; \\$dis = \\$all \\| Group-Object \\| Where-Object \\{ \\$_\\.Name -notin \\$allowed \\} \\| Sort-Object Count -Descending; Write-Output \\(\"DISALLOWED_CSS_COUNT=\" \\+ \\$dis\\.Count\\); \\$dis \\| Select-Object -First 20 \\| ForEach-Object \\{ \"\\{0\\} \\{1\\}\" -f \\$_\\.Name,\\$_\\.Count \\}$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
